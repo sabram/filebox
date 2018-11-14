@@ -9,7 +9,7 @@ To start the server:
 Or any of the other options listed at https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html
 
 Prerequistes:
-* Have AWS credentials in a "filebox" profile in ~/.aws/credentials (I haven't figured out how to do this on any final live prod server; it will likely involve using STS. AWS credentials can be tricky. See Named Profiles (https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) and https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html
+* Have AWS credentials in a "filebox" profile in ~/.aws/credentials (I haven't figured out how to do this on any final live prod server; it will likely involve using STS). AWS credentials can be tricky. Related reading at Named Profiles (https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) and https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html
 
 
 TODOs
