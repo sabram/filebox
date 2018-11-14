@@ -2,6 +2,7 @@ package com.shaunabram.filebox.filebox;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
@@ -20,11 +21,16 @@ public class FileController {
 
     @PostMapping("/file")
     void newFile() {
-        String contents = "contents";
         logger.info("Creating new file...");
-        Region region = Region.US_WEST_2;
-        S3Client s3 = S3Client.builder().region(region).build();
 
+        ProfileCredentialsProvider creds = ProfileCredentialsProvider.create("filebox");
+        Region region = Region.US_WEST_2;
+        S3Client s3 = S3Client.builder()
+                .credentialsProvider(creds)
+                .region(region)
+                .build();
+
+        String contents = "contents";
         String bucket = "filebox-shaunabram";
         String key = "testfile.txt";
 
